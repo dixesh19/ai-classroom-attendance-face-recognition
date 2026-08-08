@@ -1,0 +1,4 @@
+Django>=5.1,<6.0
+opencv-contrib-python>=4.10
+numpy>=1.26
+Pillow>=10.0
