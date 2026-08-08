@@ -1,0 +1,38 @@
+{% extends "attendance/base.html" %}
+{% block title %}Students{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>Students</h1>
+    <a class="btn btn-primary" href="{% url 'register_student' %}">Register Student</a>
+</div>
+
+<div class="card shadow-sm">
+<div class="card-body">
+<div class="table-responsive">
+<table class="table align-middle">
+<thead><tr><th>Register No.</th><th>Name</th><th>Department</th><th>Year</th><th>Section</th><th>Face</th><th></th></tr></thead>
+<tbody>
+{% for student in students %}
+<tr>
+    <td>{{ student.register_number }}</td>
+    <td>{{ student.name }}</td>
+    <td>{{ student.department }}</td>
+    <td>{{ student.year }}</td>
+    <td>{{ student.section }}</td>
+    <td>{% if student.face_image %}<span class="badge text-bg-success">Registered</span>{% else %}<span class="badge text-bg-warning">Missing</span>{% endif %}</td>
+    <td>
+        <form method="post" action="{% url 'delete_student' student.id %}" onsubmit="return confirm('Delete this student?');">
+            {% csrf_token %}
+            <button class="btn btn-sm btn-outline-danger">Delete</button>
+        </form>
+    </td>
+</tr>
+{% empty %}
+<tr><td colspan="7" class="text-center">No students registered.</td></tr>
+{% endfor %}
+</tbody>
+</table>
+</div>
+</div>
+</div>
+{% endblock %}

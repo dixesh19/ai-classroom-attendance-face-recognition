@@ -1,0 +1,22 @@
+body {
+    background: #f5f7fb;
+}
+.card {
+    border: 0;
+}
+.stat-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,.06);
+}
+.stat-card h2 {
+    margin: 8px 0 0;
+}
+.camera-preview {
+    width: 100%;
+    min-height: 260px;
+    background: #111;
+    border-radius: 10px;
+    object-fit: cover;
+}
